@@ -25,21 +25,146 @@
         </div>
         <div class="text-box">
             <div class="header-content">
-                <h1><a href="/" rel="home"><img class="header-img" src="./images/leaf1.png" alt="leaf1"/>너와 <span>나</span>드리<img img class="header-img" src="./images/leaf2.png" alt="leaf2"/></a></h1>
+                <a class="header-a" href="./index.html">너와 나드리</a>
             </div>
         </div>
     </div>
-    <div><img src= "{%static 'mg/home.png'%}"></div>
-    <h1>🚎Prost!</h1>
-    <div id = "top">추천 유형을 선택해주세요.</div><br>
-    <div id = "recommendation">
-        <ul class="main-nav-ul">
-            <li class="main-nav-li"><a class="li-font" href="ver1.html">관관지별 유사도 기반 추천</a><br><br></li>
-            <li class="li-empty"></li>
-            <li class="main-nav-li"><a class="li-font" href="ver2.html">내 평점이 반영된 맥주 추천</a><br><br></li>
-            <li class="li-empty"></li>
-            <li class="main-nav-li"><a class="li-font" href="ver3.html">취향에 맞게 추천</a><br><br></li>
-        </ul>
+    <div class="wrapper">
+        <div><img src= "{%static 'mg/home.png'%}"></div>
+        <h1 style="text-align: center;">🚎Prost!</h1>
+        <div id = "top">추천 유형을 선택해주세요.</div><br>
+        <div id = "recommendation">
+            <ul class="main-nav-ul">
+                <li class="main-nav-li"><a class="li-font" href="ver1.html">관관지별 유사도 기반 추천</a><br><br></li>
+                <li class="ver1-recommend">
+                    <div class="ver1-recommend-left">
+                        <form method="POST">
+                            <br>
+                            {% csrf_token %}
+                            아이디 :
+                            <input type="text" name="name"><br><br>
+
+                            맥주 :
+                            <select name="beer">
+                                {% for tmp in beer_list %}
+                                    <option value='{{tmp}}'>{{tmp}}</option>
+                                {% endfor %}
+                            </select><br><br>
+                            {% comment %} 취향 :
+                            <select name="detail">
+                                <option value="nature">자연경관</option>
+                                <option value="culture">문화유산</option>
+                                <option value="traffic">교통</option>
+                                <option value="sleep">숙박시설</option>
+                                <option value="food">음식</option>
+                                <option value="shopping">쇼핑</option>
+                                <option value="inform">안내시설</option>
+                                <option value="conv">편의시설</option>
+                                <option value="kind">관광종사자 친절도</option>
+                                <option value="active">체험프로그램</option>
+                                <option value="cost">물가</option>
+                                <option value="busy">혼잡도</option> {% endcomment %}
+                            </select><br><br>
+                            <input class="btn btn-success" type="submit" value="Pick!">
+                        </form>
+                    </div>
+                    <div class="ver1-recommend-right">
+
+                    </div>
+                </li>
+                <li class="main-nav-li"><a class="li-font" href="ver3.html">취향에 맞게 추천</a><br><br></li>
+                <li class="ver3-recommend">
+                    <div class="ver3-recommend-left">
+
+                    </div>
+                    <div class="ver3-recommend-right">
+                        <div class="ver3-form-content">
+                            <form class="ver3-preference-content">
+                                <div class="ver3-destination">
+                                    <span>목적지 </span><select class="ver3-destination-detail">
+                                        <option class="optionbox" value ='' selected>선택</option>
+                                        <option class="optionbox" value='seoul'>서울</option>
+                                        <option class="optionbox" value='gangwon'>강원도</option>
+                                        <option class="optionbox" value='gyeonggi'>경기도</option>
+                                        <option class="optionbox" value='chungcheongbuk'>충청북도</option>             
+                                        <option class="optionbox" value='chungcheongnam'>충청남도</option>
+                                        <option class="optionbox" value='gyeongsangbuk'>경상북도</option>
+                                        <option class="optionbox" value='gyeongsanganm'>경상남도</option>
+                                        <option class="optionbox" value='jeollabuk'>전라북도</option>
+                                        <option class="optionbox" value='Jeollanam'>전라남도</option>
+                                        </select>
+                                </div>
+                                <div class="ver3-startday">
+                                    <span>출발일 </span><input type="date" class="ver3-startday-detail">
+                                </div>
+                                <div class="ver3-human">
+                                    <span>인원수 </span><select class="ver3-human-detail">
+                                        <option class="optionbox" value ='' selected>선택</option>
+                                        <option class="optionbox" value='one'>1</option>
+                                        <option class="optionbox" value='two'>2</option>
+                                        <option class="optionbox" value='tree'>3</option>
+                                        <option class="optionbox" value='four'>4</option>             
+                                        <option class="optionbox" value='five'>5</option>
+                                        <option class="optionbox" value='six'>6</option>
+                                        <option class="optionbox" value='seven'>7~10</option>
+                                        <option class="optionbox" value='eight'>11~15</option>
+                                    </select>
+                                </div>
+                                <br/>
+                                <div class="ver3-boxtable" >
+                                    <div class="ver3-tema">테마</div>
+                                    <label class="ver3-label">
+                                    #힐링
+                                    <input type="checkbox" />
+                                    </label>
+                                    <label class="ver3-label">
+                                    #먹방
+                                    <input type="checkbox" />
+                                    </label>
+                                    <label class="ver3-label">
+                                    #레저
+                                    <input type="checkbox" />
+                                    </label>
+                                    <br/>
+                                    <label class="ver3-label">
+                                    #유흥
+                                    <input type="checkbox" />
+                                    </label>
+                                    <label class="ver3-label">
+                                    #산
+                                    <input type="checkbox" />
+                                    </label>
+                                    <label class="ver3-label">
+                                    #바다
+                                    <input type="checkbox" />
+                                    </label>
+                                    <br/>
+                                    <label class="ver3-label">
+                                    #문화재
+                                    <input type="checkbox" />
+                                    </label>
+                                    <label class="ver3-label">
+                                    #전시회
+                                    <input type="checkbox" />
+                                    </label>
+                                    <label class="ver3-label">
+                                    #놀이공원
+                                    <input type="checkbox" />
+                                    </label class="ver3-label">
+                                    <br/>
+                                </div>
+                                <input class="ver3-tema-btn" type="button" value="결과보러가기" onclick="location.href='ver3_2pg.html'">
+                            </form>
+                        </div>
+                    </div>
+                </li>
+                <li class="main-nav-li"><a class="li-font" href="ver2.html">내 평점이 반영된 맥주 추천</a><br><br>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer">
+        푸터입니당
     </div>
 </body>
 </html>

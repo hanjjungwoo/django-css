@@ -1,17 +1,31 @@
 
 /* 헤더 1~117 */
 
+
+@font-face {
+    font-family:"jua";
+    src: url(../beer/font/BMJUA_ttf.ttf);
+}
+
+li {
+    list-style: none;
+}
+
 .header {
     height: 50vh;
     background-image: 
-    linear-gradient(to right bottom, 
-   rgba(255, 255, 255, 0.6),
-   rgba(255, 255, 255, 0.1)),
-   url('./images/trip3.png');
+   url('./images/header_img_2.png');
     
   background-size: cover;
     background-position: top;
     position: relative;
+}
+
+.header-a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 115px;
+    font-family:"jua";
 }
 
 
@@ -93,7 +107,7 @@
     z-index: 1;
     padding-top: 0.1px;
 }
-.header-content::after {
+/* .header-content::after {
     background-color: aliceblue;
     top:0;
     left:0;
@@ -114,7 +128,7 @@
     color:#ecca4f;
     font-size: 125px;
     text-decoration:none;
-}
+} */
 
 /* 메뉴선택 리스트 121~147 */
 
@@ -122,28 +136,89 @@
     width: 100%;
     height: 10vh;
     background-color: #fff;
+    
 }
-
+.main-nav-ul {
+    display: inline-block;
+    align-items: center;
+    height: 1000px;
+    margin-top: 10px;
+    width: 50vw;
+    background-color: #fff;
+    padding-left: 0;
+}
+.main-nav-li {
+    padding-top: 45px ;
+    font-size: 50px;
+    background-color: #eeeeee;
+    border: 5px solid #e0e0e0;
+    border-radius: 35px;
+    height: 100px;
+    width: 49vw;
+    display: inline-block;
+    align-items: center;
+}
 .li-empty {
     background-color: #fff;
     width: 100%;
     height: 100px;
 }
-.main-nav-li {
-    margin-top:5px;
-    padding-top: 45px ;
-    font-size: 50px;
-    background-color: #3399FF;
-    border: 5px solid #236bb2;
-    height: 100px;
-}
-.main-nav-ul {
-    height: 1000px;
-    margin-top: 10px;
-}
 .li-font {
-    color: #fff;
+    color: #7e7e7e;
     text-decoration: none;
+    font-family: "jua";
+}
+.ver1-recommend {
+    margin-top: 3%;
+    margin-bottom: 3%;
+    width: 49vw;
+    height: 49.5vh;
+    background-color: #fff;
+    display: inline-block;
+    text-align: left;
+    font-size: 20px;
+}
+.ver1-recommend-left {
+    width: 50%;
+    height: 100%;
+    float: left;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.ver1-recommend-right {
+    width: 50%;
+    height: 100%;
+    float: right;
+    box-sizing: border-box;
+    background-image: url('https://source.unsplash.com/640x640/?travel');
+    background-size: fill
+}
+.ver3-recommend {
+    margin-top: 3%;
+    margin-bottom: 3%;
+    width: 49vw;
+    height: 49.5vh;
+    background-color: #fff;
+    display: inline-block;
+    text-align: left;
+    font-size: 20px;
+}
+.ver3-recommend-left {
+    width: 50%;
+    height: 100%;
+    float: left;
+    box-sizing: border-box;
+    background-image: url('https://source.unsplash.com/640x640/?nature');
+    background-size: fill
+}
+
+.ver3-recommend-right {
+    width: 50%;
+    height: 100%;
+    float: right;
+    box-sizing: border-box;
+
 }
 
 /* 결과페이지 151~171 */
@@ -171,13 +246,20 @@
 }
 
 /* 취향에 맞게 추천 */
+
+.content {
+    width: 100%;
+}
+
 .preference-content{
-    text-align: center;
     margin-top: 50px;
     width: 1450px;
     height: 1000px;
-    background-color: #a8d4ff;
+    background-color: #fff;
     display: inline-block;
+}
+.tema {
+    align:left;
 }
 
 .preference-detail {
@@ -186,10 +268,7 @@
     height: 35px;
     margin-bottom: 10px;
 }
-/* .optionbox {
-    width: 50px;
-    height: 50px;
-} */
+
 .start-date {
     height: 35px;
     margin-bottom: 10px;
@@ -214,6 +293,77 @@ label {
     padding: 20px;
     border: black;
 }
+
+/* ver3 tema */
+
 .form-content{
     display: inline-block;
+}
+.ver3-destination {
+    text-align: left;
+    font-size: 1.9vw;
+}
+.ver3-destination-detail {
+    width: 8.89vw;
+    height: 2vw;
+    display: inline-block;
+    font-size: 20px;
+}
+.ver3-startday {
+    text-align: left;
+    font-size: 1.9vw;
+}
+.ver3-startday-detail {
+    height: 2vw;
+    display: inline;
+    font-size: 20px;
+}
+.ver3-human {
+    text-align: left;
+    font-size: 1.9vw;
+}
+.ver3-human-detail {
+    width: 8.89vw;
+    height: 2vw;
+    display: inline-block;
+    font-size: 20px;
+}
+.ver3-boxtable {
+    text-align: left;
+}
+.ver3-tema {
+    text-align: left;
+    font-size: 1.9vw;
+}
+.ver3-label {
+    display:inline-block;
+    width: 150px;
+    font-size: 0.9vw;
+}
+input[type=checkbox] {
+    zoom: 1.8;
+}
+.ver3-tema-btn {
+    margin-top: 2vh;
+    width: 10vw;
+    height: 5vh;
+    font-size: 1.2vw;
+    border-radius: 35px;
+    background-color: #eeeeee;
+    border: 5px solid #e0e0e0;
+}
+
+/* footer */
+.wrapper {
+    height: auto;
+    min-height: 100%;
+    padding-bottom: 600px;
+}
+
+.footer {
+    margin-top: 500px;
+    width: 100%;
+    height: 600px;
+    background-color: #7e7e7e;
+    position: absolute;
 }
